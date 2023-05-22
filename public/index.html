@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+  <title>API Documentation</title>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      box-shadow: 1px 1px 20px 1px rgb(39, 38, 38);
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 30px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #eae8e8d2;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class=" mt-3 fw-normal text-center mt-5" style="text-shadow: 3px 3px 5px gray">
+    Toys Api
+  </h1>
+  <div class="container">
+    <table class="mt-5 mb-5">
+      <tr>
+        <th>HTTP</th>
+        <th>ROTE</th>
+        <th>DESCRIPTION</th>
+        <th>PARAMETERS/REQBODY</th>
+      </tr>
+      <tr>
+        <td class="text-bg-success fw-bolder">GET</td>
+        <td class="text-primary">/toys</td>
+        <td>Returns a list of toys according to the query parameters.</td>
+        <td>
+          <ul>
+            <li>
+              <span class="fw-bolder">page: </span>page number to return list
+              of toys.(default 1)<br /><a href="
+              https://vast-blue-dragonfly-suit.cyclic.app/toys?page=1">
+              https://vast-blue-dragonfly-suit.cyclic.app/toys?page=1</a>
+            </li>
+            <li>
+              <span class="fw-bolder">perPage: </span>numbers of toys that
+              returns in every page.(default 5)<br /><a href="
+              https://vast-blue-dragonfly-suit.cyclic.app/toys?perPage=5">https://vast-blue-dragonfly-suit.cyclic.app/toys?perPage=5</a>
+            </li>
+            <li>
+              <span class="fw-bolder">sort: </span>returns property by
+              sort.(default)<br /><a href="https://vast-blue-dragonfly-suit.cyclic.app/toys?perPage=6&sort=price">https://vast-blue-dragonfly-suit.cyclic.app/toys?perPage=6&sort=price</a>
+            </li>
+            <li>
+              <span class="fw-bolder">reverse: </span>if set to yes, sorts in
+              ascending order.(default decending)<br /><a href="https://vast-blue-dragonfly-suit.cyclic.app/toys?sort=price&reverse=yes">https://vast-blue-dragonfly-suit.cyclic.app/toys?sort=price&reverse=yes</a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td class="text-bg-success fw-bolder">GET</td>
+        <td class="text-primary">/toys?s=</td>
+        <td>returns specific property by search.</td>
+        <td>
+          <ul>
+            <li>
+              <span class="fw-bolder">searcg: </span> search query to match
+              specific property<br /><a href="https://vast-blue-dragonfly-suit.cyclic.app/toys?s=Lego">https://vast-blue-dragonfly-suit.cyclic.app/toys?s=Lego</a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td class="text-bg-success fw-bolder">GET</td>
+        <td class="text-primary">/toys/category</td>
+        <td>returns toys by category.</td>
+        <td>
+          <ul>
+            <li>
+              <span class="fw-bolder">category: </span>the name of the
+              category to retrieve toys for.<br /><a href="https://vast-blue-dragonfly-suit.cyclic.app/toys/category?cat=Building">https://vast-blue-dragonfly-suit.cyclic.app/toys/category?cat=Building</a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td class="text-bg-success fw-bolder">GET</td>
+        <td class="text-primary">/toys/price</td>
+        <td>returns a list of toys filtered by price range.</td>
+        <td>
+          <ul>
+            <li>
+              <span class="fw-bolder">min: </span>minimum price to
+              toy.(default 0)<br /><a href="https://vast-blue-dragonfly-suit.cyclic.app/toys/price?min=100">https://vast-blue-dragonfly-suit.cyclic.app/toys/price?min=100</a>
+            </li>
+            <li>
+              <span class="fw-bolder">max: </span>maximum price to
+              toy.(default Infinity ∞)<br /><a href="https://vast-blue-dragonfly-suit.cyclic.app/toys/price?max=100">https://vast-blue-dragonfly-suit.cyclic.app/toys/price?max=100</a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td class="text-bg-success fw-bolder">GET</td>
+        <td class="text-primary">/toys/single/:id</td>
+        <td>returns toys by id.</td>
+        <td>
+          <ul>
+            <li>
+              <span class="fw-bolder">id: </span>get a toy by his id.<br /><a href="https://vast-blue-dragonfly-suit.cyclic.app/toys/single/64590ce646e0fdeb4ac6e917">https://vast-blue-dragonfly-suit.cyclic.app/toys/single/64590ce646e0fdeb4ac6e917</a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td class="text-bg-warning fw-bolder">POST</td>
+        <td class="text-primary">/toys</td>
+        <td>
+          add a new toy.<span class="fw-bold">(token is required)</span>
+        </td>
+        <td>
+          <ul>
+            <li>
+              <span class="fw-bolder">req.body: </span>Toy data to be added in
+              the following schema<br />
+            </li>
+            <li>
+              <span class="fw-bolder">schema: </span>
+              { name: String,<br />
+              info: String,<br />
+              category: String,<br />
+              img_url: String,<br />
+              price: Number}<br />
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td class="text-bg-primary fw-bolder">PUT</td>
+        <td class="text-primary">/toys/:id</td>
+        <td>update toy.<span class="fw-bold">(token is required)</span></td>
+        <td>
+          <ul>
+            <li>
+              <span class="fw-bolder">id: </span>the id of the toy to
+              update.<br />
+            </li>
+            <li>
+              <span class="fw-bolder">req.body: </span>toy data to be updated
+              in the following schema<br />
+            </li>
+            <li>
+              <span class="fw-bolder">schema: </span>
+              { name: String,<br />
+              info: String,<br />
+              category: String,<br />
+              img_url: String,<br />
+              price: Number}<br />
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td class="text-bg-danger fw-bolder">DELETE</td>
+        <td class="text-primary">/toys/:id</td>
+        <td>delete toy.<span class="fw-bold">(token is required)</span></td>
+        <td>
+          <ul>
+            <li>
+              <span class="fw-bolder">id: </span>the id of the toy to
+              delete.<br />
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </table> 
+  </div>
+
+  <h1 class=" mt-3 fw-normal text-center mt-5" style="text-shadow: 3px 3px 5px gray">
+    Users Api
+  </h1>
+  <div class="container">
+    <table class="mt-5 mb-5 col-12">
+      <tr>
+        <th>HTTP</th>
+        <th>ROTE</th>
+        <th>DESCRIPTION</th>
+        <th>REQBODY</th>
+      </tr>
+      <tr>
+        <td class="text-bg-success fw-bolder">GET</td>
+        <td class="text-primary">/users</td>
+        <td>Test endpoint to check if the server is running</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td class="text-bg-success fw-bolder">GET</td>
+        <td class="text-primary">	/users/userInfo</td>
+        <td>Get the information for the authenticated user (requires authentication)</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td class="text-bg-warning fw-bold">POST</td>
+        <td class="text-primary">/users</td>
+        <td>Create a new user</td>
+        <td>{ name: String, email: String, password: String }</td>
+      </tr>
+      <tr>
+        <td class="text-bg-warning fw-bold">POST</td>
+        <td class="text-primary">/users/login</td>
+        <td>Authenticate a user and receive a JWT token in response</td>
+        <td>{ email: String, password: String }</td>
+      </tr>
+
+    </table>
+  </div>
+
+  <h1 class=" mt-3 fw-normal text-center mt-5" style="text-shadow: 3px 3px 5px gray">
+    Users/Admin Token Abillities
+  </h1>
+  <div class="container">
+    <table class="mt-5 mb-5 col-12">
+      <tr>
+        <th>Admin</th>
+        <th>Default User</th>
+      </tr>
+      <tr>
+        <td>Has the ability to add new toys to the system</td>
+        <td>Has the ability to add new toys to the system</td>
+      </tr>
+      <tr>
+        <td>Can edit all information related to any toy in the system</td>
+        <td>Can only edit information related to toys they have created or are associated with their account</td>
+      </tr>
+      <tr>
+        <td>Has the ability to delete all toys from the system</td>
+        <td>Can only delete toys that they have created or are associated with their account</td>
+      </tr>
+    </table>
+  </div>
+  <p class="text-center">Copyright © 2023 <span class="fw-bold">Lidor Avisar</span> <br> Fullstack Developer | MongoDB | Node.js</p>
+</body>
+
+</html>
